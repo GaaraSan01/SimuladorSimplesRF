@@ -26,8 +26,9 @@ class Simular:
         self.tempo = tempoMeses
 
     def getData(self):
+        valorCDI = float(self.cdi)/100
         taxaCalc = float(self.taxa)/100
-        cdiCalc = taxaCalc * 99/100
+        cdiCalc = taxaCalc * 99/100 * valorCDI
         montante = float(self.valor) * (1 + cdiCalc/12)**(int(self.tempo)*12)
         resultado = f'O montante é: R${montante: _.2f}'
         resultado = resultado.replace('.',',').replace('_','.')
